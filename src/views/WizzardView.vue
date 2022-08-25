@@ -4,15 +4,15 @@ import EventRegistrationComponent from "../components/Wizzard/EventRegistrationC
 </script>
 
 <template>
-  <header>
+  <div class="h-full flex flex-col">
     <NotificationBar />
-    <main class="bg-alt-200">
+    <main class="bg-alt-200 flex-1">
       <div class="h-6 custom-shadow" />
       <div class="px-4">
         <EventRegistrationComponent />
       </div>
     </main>
-  </header>
+  </div>
 </template>
 
 <style scoped>
