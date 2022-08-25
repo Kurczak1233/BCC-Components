@@ -1,11 +1,15 @@
 <script setup>
-import NotificationBar from "../components/Wizzard/NotificationBar.vue";
+// import NotificationBar from "../components/Wizzard/Headers/NotificationBar.vue";
 import EventRegistrationComponent from "../components/Wizzard/EventRegistrationComponent.vue";
+import BCCGrenland from "../components/Wizzard/Headers/BCC-Grenland.vue";
+import PameldingComponent from "../components/Wizzard/Headers/PameldingComponent.vue";
 </script>
 
 <template>
   <div class="h-full flex flex-col">
-    <NotificationBar />
+    <!-- <NotificationBar /> -->
+    <BCCGrenland />
+    <PameldingComponent />
     <main class="bg-alt-200 flex-1">
       <div class="h-6 custom-shadow" />
       <div class="px-4">

@@ -16,7 +16,7 @@
     </div>
   </header>
 </template>
-<!-- I could not find appropriate color for secondary lighter -->
+<!-- I could not find an appropriate color for secondary lighter -->
 <style scoped>
 .secondary-lighter {
   background: #e9edd9;

@@ -1,5 +1,6 @@
 <script setup>
-import GrayUser from "../icons/GrayUser.vue";
+import UsersGroup from "../icons/UsersGroup.vue";
+import PlusIcon from "../icons/PlusIcon.vue";
 </script>
 
 <template>
@@ -9,7 +10,7 @@ import GrayUser from "../icons/GrayUser.vue";
     <div class="flex items-center justify-between px-3">
       <div class="font-bold font-serif tracking-wide text-xl">Påskestevnet</div>
       <div class="flex items-center">
-        <GrayUser class="mr-1.5" />
+        <UsersGroup class="mr-1.5" />
         <span class="font-sans font-semibold text-base">234</span>
       </div>
     </div>
@@ -31,9 +32,9 @@ import GrayUser from "../icons/GrayUser.vue";
         class="bg-prime-10 w-6/12 flex items-center justify-evenly rounded-br-2xl"
       >
         <span
-          class="font-normal text-base uppercase text-prime-500 text-center"
+          class="font-semibold text-base uppercase text-prime-500 text-center flex items-center"
         >
-          Meld på
+          Meld på <PlusIcon class="ml-2.5" />
         </span>
       </div>
     </div>
