@@ -17,7 +17,7 @@ import GreenCalendarSvg from "../icons/GreenCalendar.vue";
       >
     </div>
     <div class="flex justify-evenly">
-      <span class="text-lg text-base mt-2 text-center font-sans opacity-80">
+      <span class="text-lg text-base mt-2 text-center font-sans opacity-60">
         Påmeld deg til stevner og camps for 2023 ved hjelp av enkle steg
       </span>
     </div>
