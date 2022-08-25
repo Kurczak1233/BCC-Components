@@ -9,7 +9,7 @@ import EventRegistrationComponent from "../components/Wizzard/EventRegistrationC
     <main class="bg-alt-200 flex-1">
       <div class="h-6 custom-shadow" />
       <div class="px-4">
-        <EventRegistrationComponent />
+        <div v-for="n in 10" :key="n"><EventRegistrationComponent /></div>
       </div>
     </main>
   </div>

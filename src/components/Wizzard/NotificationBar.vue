@@ -1,5 +1,5 @@
 <template>
-  <header class="pt-4 pb-3 pr-7 pl-6 font-sans">
+  <header class="pt-4 pb-3 pr-7 pl-6 font-sans secondary-lighter">
     <div class="font-medium uppercase text-sm opacity-90 tracking-wide">
       STEG 1
     </div>
@@ -16,8 +16,12 @@
     </div>
   </header>
 </template>
-
+<!-- I could not find appropriate color for secondary lighter -->
 <style scoped>
+.secondary-lighter {
+  background: #e9edd9;
+}
+
 .text-small-medium {
   font-size: 15px;
 }
