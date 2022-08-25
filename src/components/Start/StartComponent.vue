@@ -22,7 +22,9 @@ import GreenCalendarSvg from "../icons/GreenCalendar.vue";
       </span>
     </div>
     <div class="flex justify-evenly">
-      <button class="btn btn-blue mt-8 w-10/12">Start</button>
+      <RouterLink to="/wizzard" class="btn btn-blue mt-8 w-10/12 text-center">
+        <span class="font-sans text-lg font-semibold">Start</span>
+      </RouterLink>
     </div>
   </div>
 </template>
