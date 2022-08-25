@@ -7,9 +7,3 @@ import StartComponent from "../components/Start/StartComponent.vue";
     <StartComponent />
   </main>
 </template>
-
-<style scoped>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-</style>

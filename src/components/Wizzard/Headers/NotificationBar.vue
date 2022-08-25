@@ -1,5 +1,15 @@
+<script setup>
+const emit = defineEmits(["confirmedNotification"]);
+
+const clickOnConfirmButton = () => {
+  emit("confirmedNotification", true);
+};
+</script>
+
 <template>
-  <header class="pt-4 pb-3 pr-7 pl-6 font-sans secondary-lighter">
+  <div
+    class="pt-4 pb-3 pr-7 pl-6 font-sans secondary-lighter fixed z-10 custom-top-length custom-shadow"
+  >
     <div class="font-medium uppercase text-sm opacity-90 tracking-wide">
       STEG 1
     </div>
@@ -12,16 +22,21 @@
     </div>
     <div class="mt-2 flex justify-between items-center">
       <div class="font-medium text-small-medium font-sans">Påmeldt 0 av 9</div>
-      <div class="btn btn-blue">Neste</div>
+      <div @click="clickOnConfirmButton" class="btn btn-blue">Neste</div>
     </div>
-  </header>
+  </div>
 </template>
 <!-- I could not find an appropriate color for secondary lighter -->
 <style scoped>
+.custom-shadow {
+  box-shadow: 0px 12px 6px -4px rgba(0, 0, 0, 0.25);
+}
 .secondary-lighter {
   background: #e9edd9;
 }
-
+.custom-top-length {
+  top: 60px;
+}
 .text-small-medium {
   font-size: 15px;
 }

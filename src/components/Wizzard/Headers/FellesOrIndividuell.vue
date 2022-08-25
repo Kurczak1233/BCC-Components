@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import UsersGroup from "../../icons/UsersGroup.vue";
 import UserIcon from "../../icons/UserIcon.vue";
 import CheckIcon from "../../icons/CheckIcon.vue";
@@ -17,7 +16,7 @@ const props = defineProps({
   <div
     :class="
       props.checked
-        ? `${'border-2 border-solid border-prime-200 w-6/12 mr-4 p-4 bg-alt-200 rounded-lg'}`
+        ? `${'border-2 border-solid border-prime-200 w-6/12 mr-4 ml-4 p-4 bg-alt-200 rounded-lg'}`
         : `w-6/12 mr-4 p-4 bg-alt-200 rounded-lg`
     "
   >
