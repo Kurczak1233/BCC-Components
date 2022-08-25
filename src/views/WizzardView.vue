@@ -3,10 +3,12 @@
 import EventRegistrationComponent from "../components/Wizzard/EventRegistrationComponent.vue";
 import BCCGrenland from "../components/Wizzard/Headers/BCC-Grenland.vue";
 import PameldingComponent from "../components/Wizzard/Headers/PameldingComponent.vue";
+import EventsHeader from "../components/Wizzard/Headers/EventsHeader.vue";
 </script>
 
 <template>
   <div class="h-full flex flex-col">
+    <EventsHeader />
     <!-- <NotificationBar /> -->
     <BCCGrenland />
     <PameldingComponent />
