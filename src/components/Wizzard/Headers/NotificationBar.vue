@@ -8,7 +8,7 @@ const clickOnConfirmButton = () => {
 
 <template>
   <div
-    class="pt-4 pb-3 pr-7 pl-6 font-sans secondary-lighter fixed z-10 custom-top-length custom-shadow"
+    class="pt-4 pb-3 pr-7 pl-6 font-sans secondary-lighter fixed z-10 custom-top-length custom-shadow w-full"
   >
     <div class="font-medium uppercase text-sm opacity-90 tracking-wide">
       STEG 1

@@ -26,13 +26,22 @@ const mockedHeaderDataInactive = {
   maxItems: 1,
 };
 
-// const mockedEventData = {
-//   registerd: false,
-// };
+const mockedEventData = {
+  registered: true,
+  availableToRegister: true,
+  numberOfPeopleOnEvent: 123,
+};
 
-// const mockedEventDataInactive = {
-// registerd: true,
-// };
+const mockedEventDataInactive = {
+  registered: false,
+  availableToRegister: false,
+  numberOfPeopleOnEvent: 32,
+};
+const mockedEventDataNotRegistered = {
+  registered: false,
+  availableToRegister: true,
+  numberOfPeopleOnEvent: 21,
+};
 </script>
 
 <template>
@@ -51,7 +60,15 @@ const mockedHeaderDataInactive = {
     </div>
     <main class="bg-alt-200 flex-1">
       <div class="px-4">
-        <div v-for="n in 10" :key="n"><EventRegistrationComponent /></div>
+        <div v-for="n in 4" :key="n">
+          <EventRegistrationComponent v-bind="mockedEventData" />
+        </div>
+        <div v-for="n in 3" :key="n">
+          <EventRegistrationComponent v-bind="mockedEventDataNotRegistered" />
+        </div>
+        <div v-for="n in 3" :key="n">
+          <EventRegistrationComponent v-bind="mockedEventDataInactive" />
+        </div>
       </div>
     </main>
   </div>
