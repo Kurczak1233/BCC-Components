@@ -9,6 +9,8 @@ import { ref } from "vue";
 import EventsWrapper from "../components/Wizzard/EventsWrapper.vue";
 
 const confirmedNotification = ref(false);
+const scrollingMenu = ref(null);
+const fixedFiltrations = ref(false);
 
 const mockedHeaderData = {
   componentTitle: "Felles",
@@ -43,42 +45,55 @@ const mockedEventDataNotRegistered = {
   availableToRegister: true,
   numberOfPeopleOnEvent: 21,
 };
+
+const handleScroll = () => {
+  if (scrollingMenu.value.scrollTop > 64) {
+    fixedFiltrations.value = true;
+  } else {
+    fixedFiltrations.value = false;
+  }
+};
 </script>
 
 <template>
   <div class="h-full flex flex-col">
+    <EventsHeader />
     <div
       :class="
         confirmedNotification
-          ? `${'flex flex-col z-40'}`
+          ? `${'flex flex-col z-40 '}`
           : `w-screen h-screen fixed flex flex-col z-40`
       "
+      v-if="!confirmedNotification"
     >
-      <EventsHeader />
       <NotificationBar
         @confirmedNotification="(value) => (confirmedNotification = value)"
-        v-if="!confirmedNotification"
+      />
+      <div class="bg-gray flex-1 bg-black z-20 opacity-60 custom-top-offset" />
+    </div>
+    <main
+      @scroll="handleScroll"
+      ref="scrollingMenu"
+      :class="
+        confirmedNotification
+          ? `${'bg-alt-200 flex-1 overflow-auto custom-event-header-offset relative'}`
+          : `bg-alt-200 flex-1 overflow-hidden custom-event-header-offset relative`
+      "
+    >
+      <BCCGrenland
+        :class="fixedFiltrations ? `${'custom-margin-bottom'}` : ``"
       />
       <div
-        class="bg-gray flex-1 bg-black z-20 opacity-60 custom-top-offset"
-        v-if="!confirmedNotification"
-      />
-    </div>
-    <div>
-      <BCCGrenland />
-      <div class="py-4 flex items-center custom-shadow z-20">
+        :class="
+          fixedFiltrations
+            ? `${'py-4 flex items-center custom-shadow z-20 bg-white w-full fixed custom-events-top-offset'}`
+            : `py-4 flex items-center custom-shadow z-20 bg-white w-full`
+        "
+      >
         <FellesOrIndividuell v-bind="mockedHeaderData" />
         <FellesOrIndividuell v-bind="mockedHeaderDataInactive" />
       </div>
-    </div>
-    <main
-      :class="
-        confirmedNotification
-          ? `${'bg-alt-200 flex-1 overflow-auto pt-4'}`
-          : `bg-alt-200 flex-1 overflow-hidden pt-4`
-      "
-    >
-      <div class="px-4">
+      <div class="px-4 mt-4">
         <div v-for="n in 4" :key="n">
           <EventRegistrationComponent v-bind="mockedEventData" />
         </div>
@@ -96,9 +111,18 @@ const mockedEventDataNotRegistered = {
 
 <style scoped>
 .custom-top-offset {
-  top: 250px;
+  top: 120px;
+}
+.custom-margin-bottom {
+  margin-top: 120px;
+}
+.custom-events-top-offset {
+  top: 60px;
+}
+.custom-event-header-offset {
+  margin-top: 60px;
 }
 .custom-shadow {
-  box-shadow: 0px 24px 20px -4px rgb(0 0 0 / 10%);
+  box-shadow: 0px 24px 20px 5px rgb(0 0 0 / 10%);
 }
 </style>
