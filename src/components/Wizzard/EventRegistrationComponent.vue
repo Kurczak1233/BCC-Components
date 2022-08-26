@@ -6,12 +6,17 @@ const props = defineProps({
   registered: Boolean,
   availableToRegister: Boolean,
   numberOfPeopleOnEvent: Number,
+  noMargin: Boolean,
 });
 </script>
 
 <template>
   <div
-    class="event-registration-wrapper bg-white rounded-2xl pt-3 flex flex-col mb-6"
+    :class="
+      noMargin
+        ? `${'event-registration-wrapper bg-white rounded-2xl pt-3 flex flex-col'}`
+        : `event-registration-wrapper bg-white rounded-2xl pt-3 flex flex-col mb-6`
+    "
   >
     <div class="flex items-center justify-between px-3">
       <div class="font-bold font-serif tracking-wide text-xl">Påskestevnet</div>

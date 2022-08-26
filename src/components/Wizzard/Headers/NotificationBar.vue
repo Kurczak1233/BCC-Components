@@ -1,6 +1,5 @@
 <script setup>
 const emit = defineEmits(["confirmedNotification"]);
-
 const clickOnConfirmButton = () => {
   emit("confirmedNotification", true);
 };
@@ -8,7 +7,7 @@ const clickOnConfirmButton = () => {
 
 <template>
   <div
-    class="pt-4 pb-3 pr-7 pl-6 font-sans secondary-lighter fixed z-10 custom-top-length custom-shadow w-full"
+    class="pt-4 pb-3 pr-7 pl-6 font-sans secondary-lighter fixed z-40 custom-top-length custom-shadow w-full"
   >
     <div class="font-medium uppercase text-sm opacity-90 tracking-wide">
       STEG 1
@@ -29,7 +28,7 @@ const clickOnConfirmButton = () => {
 <!-- I could not find an appropriate color for secondary lighter -->
 <style scoped>
 .custom-shadow {
-  box-shadow: 0px 12px 6px -4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 24px 20px -4px rgb(0 0 0 / 10%);
 }
 .secondary-lighter {
   background: #e9edd9;

@@ -6,6 +6,7 @@ import FellesOrIndividuell from "../components/Wizzard/Headers/FellesOrIndividue
 import NotificationBar from "../components/Wizzard/Headers/NotificationBar.vue";
 
 import { ref } from "vue";
+import EventsWrapper from "../components/Wizzard/EventsWrapper.vue";
 
 const confirmedNotification = ref(false);
 
@@ -46,19 +47,37 @@ const mockedEventDataNotRegistered = {
 
 <template>
   <div class="h-full flex flex-col">
-    <EventsHeader />
-    <NotificationBar
-      v-if="!confirmedNotification"
-      @confirmedNotification="(value) => (confirmedNotification = value)"
-    />
+    <div
+      :class="
+        confirmedNotification
+          ? `${'flex flex-col z-40'}`
+          : `w-screen h-screen fixed flex flex-col z-40`
+      "
+    >
+      <EventsHeader />
+      <NotificationBar
+        @confirmedNotification="(value) => (confirmedNotification = value)"
+        v-if="!confirmedNotification"
+      />
+      <div
+        class="bg-gray flex-1 bg-black z-20 opacity-60 custom-top-offset"
+        v-if="!confirmedNotification"
+      />
+    </div>
     <div>
       <BCCGrenland />
-      <div class="py-4 flex items-center">
+      <div class="py-4 flex items-center custom-shadow z-20">
         <FellesOrIndividuell v-bind="mockedHeaderData" />
         <FellesOrIndividuell v-bind="mockedHeaderDataInactive" />
       </div>
     </div>
-    <main class="bg-alt-200 flex-1">
+    <main
+      :class="
+        confirmedNotification
+          ? `${'bg-alt-200 flex-1 overflow-auto pt-4'}`
+          : `bg-alt-200 flex-1 overflow-hidden pt-4`
+      "
+    >
       <div class="px-4">
         <div v-for="n in 4" :key="n">
           <EventRegistrationComponent v-bind="mockedEventData" />
@@ -70,6 +89,16 @@ const mockedEventDataNotRegistered = {
           <EventRegistrationComponent v-bind="mockedEventDataInactive" />
         </div>
       </div>
+      <EventsWrapper />
     </main>
   </div>
 </template>
+
+<style scoped>
+.custom-top-offset {
+  top: 250px;
+}
+.custom-shadow {
+  box-shadow: 0px 24px 20px -4px rgb(0 0 0 / 10%);
+}
+</style>
